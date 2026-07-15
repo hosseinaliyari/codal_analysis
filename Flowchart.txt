@@ -1,0 +1,160 @@
+Domain: فقط قوانین مالی و ارزش‌گذاری.
+Application: ترتیب اجرای سناریوها.
+Infrastructure: ارتباط با کدال، بورس و SQLite.
+Presentation: Tkinter یا هر رابط کاربری.
+Data Processing: تمام عملیات روی DataFrame.
+1. Domain
+    Entity
+    Repository Interface
+
+2. Infrastructure
+    SQLite
+    Codal
+    TSETMC
+
+3. Data Processing
+    Pandas
+    Merge
+    Calculation
+
+4. Application
+    Use Case
+
+5. Presentation
+    Tkinter
+
+
+
+Domain
+
+├── Entity
+│      داده + رفتارهای مربوط به همان موجودیت
+│
+├── Value Object
+│      اشیای بدون هویت (بعداً با آن آشنا می‌شوی)
+│
+├── Domain Service
+│      قوانین و محاسباتی که بین چند Entity هستند
+│
+├── Repository (Interface)
+│      قرارداد دسترسی به داده
+│
+└── Validator (در صورت نیاز)
+       اعتبارسنجی قوانین دامنه
+
+Application
+│
+├── Use Case
+│      اجرای یک سناریوی کامل
+│
+├── DTO
+│      انتقال داده بین لایه‌ها
+│
+└── Mapper (در صورت نیاز)
+       تبدیل DTO ↔ Entity
+
+
+Infrastructure
+│
+├── Database
+│      SQLite
+│
+├── Repository
+│      پیاده‌سازی Interfaceها
+│
+├── API Client
+│      Codal
+│      TSETMC
+│
+├── File
+│      Excel
+│      CSV
+│
+└── Configuration
+
+
+Presentation
+│
+├── Tkinter
+│
+├── Blazor
+│
+├── FastAPI
+│
+└── CLI
+
+
+project/
+│
+├── domain/
+│   ├── entities/
+│   │   ├── company.py
+│   │   ├── financial_statement.py
+│   │   ├── economic_data.py
+│   │   └── adjustment.py
+│   │
+│   ├── validators/
+│   │   ├── company_validator.py
+│   │   ├── financial_statement_validator.py
+│   │   ├── economic_data_validator.py
+│   │   └── adjustment_validator.py
+│   │
+│   ├── services/
+│   │   ├── valuation_service.py
+│   │   ├── forecast_service.py
+│   │   └── report_service.py
+│   │
+│   ├── repositories/
+│   │   ├── company_repository.py
+│   │   ├── financial_statement_repository.py
+│   │   ├── economic_data_repository.py
+│   │   └── adjustment_repository.py
+│   │
+│   └── exceptions/
+│       └── domain_exceptions.py
+│
+├── application/
+│   ├── company_use_case.py
+│   ├── valuation_use_case.py
+│   ├── report_use_case.py
+│   └── update_use_case.py
+│
+├── infrastructure/
+│   ├── database/
+│   │   ├── sqlite_connection.py
+│   │   └── database_initializer.py
+│   │
+│   ├── repositories/
+│   │   ├── sqlite_company_repository.py
+│   │   ├── sqlite_financial_repository.py
+│   │   ├── sqlite_economic_repository.py
+│   │   └── sqlite_adjustment_repository.py
+│   │
+│   ├── codal/
+│   │   ├── codal_client.py
+│   │   ├── financial_scraper.py
+│   │   └── monthly_scraper.py
+│   │
+│   └── excel/
+│       ├── excel_reader.py
+│       └── excel_writer.py
+│
+├── presentation/
+│   ├── main.py
+│   ├── windows/
+│   ├── menus/
+│   ├── dialogs/
+│   └── widgets/
+│
+├── shared/
+│   ├── constants.py
+│   ├── enums.py
+│   ├── helpers.py
+│   └── config.py
+│
+├── tests/
+│   ├── test_company.py
+│   ├── test_financial_statement.py
+│   └── test_valuation.py
+│
+└── requirements.txt

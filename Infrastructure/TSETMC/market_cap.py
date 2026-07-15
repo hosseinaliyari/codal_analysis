@@ -1,0 +1,16 @@
+import sqlite3
+import pandas as pd
+import finpy_tse as tse
+import numpy as np
+
+def Market_Cap():
+    data= tse.Get_MarketWatch(save_excel=False)
+    df=data[0]
+    df['bt']=10000000000
+    df['Value']=df['Value']/df['bt']
+    df['Market Cap']=df['Market Cap']/df['bt']
+    df['Market Cap']=round(df['Market Cap'])
+    df=df[['Final','Final(%)','Market Cap']]
+    df=df.reset_index()
+    return df
+Market = Market_Cap()
