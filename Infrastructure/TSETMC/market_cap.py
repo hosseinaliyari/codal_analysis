@@ -1,7 +1,5 @@
-import sqlite3
-import pandas as pd
+from infrastructure.common.datetime_helper import now_jalali_str
 import finpy_tse as tse
-import numpy as np
 
 def Market_Cap():
     data= tse.Get_MarketWatch(save_excel=False)
@@ -11,6 +9,7 @@ def Market_Cap():
     df['Market Cap']=df['Market Cap']/df['bt']
     df['Market Cap']=round(df['Market Cap'])
     df=df[['Final','Final(%)','Market Cap']]
+    df=df.filter(items=["Ticker","Final","Final(%)","Market Cap"])
+    df["UpdateDate"]=now_jalali_str()
     df=df.reset_index()
     return df
-Market = Market_Cap()

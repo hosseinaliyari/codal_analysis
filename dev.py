@@ -1,0 +1,2 @@
+from infrastructure.repositories.repositories_tsetmc import update_market_value
+update_market_value()

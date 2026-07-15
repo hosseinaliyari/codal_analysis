@@ -24,6 +24,24 @@ Data Processing: تمام عملیات روی DataFrame.
     Tkinter
 
 
+کدنویسی
+
+↓
+
+git status
+
+↓
+
+git add .
+
+↓
+
+git commit -m "توضیح تغییرات"
+
+↓
+
+git push
+
 
 Domain
 
