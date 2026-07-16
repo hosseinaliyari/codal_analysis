@@ -1,8 +1,8 @@
 from infrastructure.connection.connection_text import get_connection
-from domain.entities.economicData import EconomicData
-from domain.repositories.IEconomicData import EconomicRepository
+from domain.entities.EconomicData import EconomicData
+from domain.repositories.IEconomicData import IEconomicData
 
-class Repositories_economic_data(EconomicRepository) :
+class RepositoriesEconomicData(IEconomicData) :
   
     def add(self, economic_data):
         addquery =(""" INSERT INTO EconomicData (Year, DollarNima, InterestRate, UpdateDate)

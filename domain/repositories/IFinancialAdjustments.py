@@ -1,13 +1,10 @@
 from abc import ABC, abstractmethod
-
-class IEconomicData(ABC):
-
+class IFinancialAdjustments(ABC):
     @abstractmethod
-    def add(self, economic_data):
+    def add(self, FinancialAdjustments):
         pass
-
     @abstractmethod
-    def get_by_year(self, year):
+    def get_by_symbol(self, symbol):
         pass
 
     @abstractmethod
@@ -19,5 +16,5 @@ class IEconomicData(ABC):
         pass
 
     @abstractmethod
-    def delete(self, year):
+    def delete(self, symbol):
         pass
