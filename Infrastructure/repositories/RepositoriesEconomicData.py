@@ -1,6 +1,8 @@
 from infrastructure.connection.connection_text import get_connection
 from domain.entities.EconomicData import EconomicData
 from domain.repositories.IEconomicData import IEconomicData
+import pandas as pd
+
 
 class RepositoriesEconomicData(IEconomicData) :
   
@@ -33,6 +35,13 @@ class RepositoriesEconomicData(IEconomicData) :
         if row is None:
             return None
         return EconomicData(*row)
+    
+    def get_EconomicData(self):
+        query=("select * from EconomicData")
+        conn = get_connection()
+        df = pd.read_sql_query(query,conn)
+        conn.close()
+        return df
 
     def get_all(self):
         conn = get_connection()

@@ -1,13 +1,21 @@
 from infrastructure.connection.connection_text import get_connection
 from infrastructure.codal.financial_statements import financialStatements
+import pandas as pd
 
-query=("""
+def get_codal_financialStatements():
+    query=("select * from FinancialData")
+    conn = get_connection()
+    df = pd.read_sql_query(query,conn)
+    conn.close()
+    return df
+
+
+def update_codal_financialStatements():
+    query=("""
         INSERT OR IGNORE INTO FinancialData
         (Symbol, Title, period, date, year, Profit, profit_last, Equity)
         VALUES (?,?,?,?,?,?,?,?)
         """)
-
-def update_codal_financialStatements():
     financialStatement = financialStatements()
     rows = list(financialStatement.itertuples(index=False, name=None))
     conn = get_connection()

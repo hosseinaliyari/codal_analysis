@@ -1,31 +1,36 @@
 from domain.repositories.IFinancialAdjustments import IFinancialAdjustments
 from infrastructure.connection.connection_text import get_connection
-
+import pandas as pd
 
 class RepositoriesFinancialAdjustments(IFinancialAdjustments):
 
-    def add(self, financial_adjustment):
+    # def add(self, financial_adjustment):
+    #     conn = get_connection()
+    #     conn.execute("""
+    #         INSERT INTO FinancialAdjustments
+    #         (
+    #             Symbol,
+    #             Adjustment,
+    #             PortfolioChange,
+    #             Comment
+    #         )
+    #         VALUES (?,?,?,?)
+    #     """, (
+    #         financial_adjustment.symbol,
+    #         financial_adjustment.adjustment,
+    #         financial_adjustment.portfolio_change,
+    #         financial_adjustment.comment
+    #     ))
+    #     conn.commit()
+    #     conn.close()
 
+    def add(self,symbol):
         conn = get_connection()
-
-        conn.execute("""
-            INSERT INTO FinancialAdjustments
-            (
-                Symbol,
-                Adjustment,
-                PortfolioChange,
-                Comment
-            )
-            VALUES (?,?,?,?)
-        """, (
-            financial_adjustment.symbol,
-            financial_adjustment.adjustment,
-            financial_adjustment.portfolio_change,
-            financial_adjustment.comment
-        ))
-
+        conn.execute(""" INSERT OR IGNORE INTO FinancialAdjustments(Symbol) VALUES (?) """, symbol)
         conn.commit()
         conn.close()
+
+
 
 
     def get_by_symbol(self, symbol):
@@ -47,6 +52,13 @@ class RepositoriesFinancialAdjustments(IFinancialAdjustments):
         conn.close()
 
         return row
+     
+    def get_FinancialAdjustments(self):
+        query=("select * from FinancialAdjustments")
+        conn = get_connection()
+        df = pd.read_sql_query(query,conn)
+        conn.close()
+        return df
 
 
     def get_all(self):
