@@ -36,18 +36,3 @@ class MergeDataProcessor:
         merged["ValueForecast"] =round((merged['Equity']+ ((merged["ProfitForecast"] +merged['Adjustment'] + merged['PortfolioChange'] ) / merged['InterestRate'])))
         merged["PerDifference"]= round((merged["MarketValue"]-merged['ValueForecast'])/merged['ValueForecast'],1)*100
         return merged 
-
-# d=Merge_data.filter(items=["Ticker","Adjustment","PortfolioChange","Comment"])
-# RowsAdjustmentUpdate = list(d.itertuples(index=False, name=None))
-# cursor.executemany("""
-# INSERT INTO FinancialAdjustments
-# (Symbol, Adjustment, PortfolioChange, Comment)
-# VALUES (?, ?, ?, ?)
-# ON CONFLICT(Symbol)
-# DO UPDATE SET
-#     Adjustment = excluded.Adjustment,
-#     PortfolioChange = excluded.PortfolioChange,
-#     Comment = excluded.Comment;
-# """, RowsAdjustmentUpdate)
-# conn.commit()
-

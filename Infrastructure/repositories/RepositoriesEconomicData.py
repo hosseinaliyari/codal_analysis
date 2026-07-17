@@ -1,4 +1,4 @@
-from infrastructure.connection.connection_text import get_connection
+from infrastructure.connection.ConnectionText import get_connection
 from domain.entities.EconomicData import EconomicData
 from domain.repositories.IEconomicData import IEconomicData
 import pandas as pd

@@ -1,3 +1,3 @@
-from infrastructure.repositories.RepositoriesMergeData import RepositoriesMergedData
+from application.use_cases.Update_market import Update_market
 
-a =RepositoriesMergedData().update_MergedData()
+Update_market().execute()

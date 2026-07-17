@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 class IFinancialAdjustments(ABC):
     @abstractmethod
     def add(self, FinancialAdjustments):

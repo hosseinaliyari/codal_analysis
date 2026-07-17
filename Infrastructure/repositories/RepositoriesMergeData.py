@@ -1,7 +1,7 @@
 from domain.entities.MergedData import MergedData
 from domain.repositories.IMergedData import IMergedData
-from infrastructure.connection.connection_text import get_connection
-from processing.MergeData import MergeDataProcessor
+from infrastructure.connection.ConnectionText import get_connection
+from application.processing.MergeData import MergeDataProcessor
 
 class RepositoriesMergedData(IMergedData):
 

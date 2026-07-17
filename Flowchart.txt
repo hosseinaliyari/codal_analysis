@@ -3,6 +3,25 @@ Application: ترتیب اجرای سناریوها.
 Infrastructure: ارتباط با کدال، بورس و SQLite.
 Presentation: Tkinter یا هر رابط کاربری.
 Data Processing: تمام عملیات روی DataFrame.
+
+| مورد                  | استاندارد                      |
+| --------------------- | ------------------------------ |
+| پوشه                  | `lowercase`                    |
+| فایل                  | `snake_case.py`                |
+| کلاس                  | `PascalCase`                   |
+| تابع                  | `snake_case`                   |
+| متد                   | `snake_case`                   |
+| متغیر                 | `snake_case`                   |
+| ثابت                  | `UPPER_CASE`                   |
+| پکیج                  | `lowercase`                    |
+| Interface             | `CompanyRepository` (بدون `I`) |
+| Repository پیاده‌سازی | `SqliteCompanyRepository`      |
+| Service               | `ValuationService`             |
+| Processor             | `MergeDataProcessor`           |
+| Use Case              | `UpdateMarketUseCase`          |
+
+
+
 1. Domain
     Entity
     Repository Interface
@@ -70,6 +89,23 @@ Application
 │
 └── Mapper (در صورت نیاز)
        تبدیل DTO ↔ Entity
+
+application/
+│
+├── processing/
+│   ├── merge_data.py
+│   ├── valuation_processor.py
+│   ├── forecast_processor.py
+│   └── normalization_processor.py
+│
+└── use_cases/
+    ├── update_market.py
+    ├── update_financial.py
+    ├── update_economic.py
+    ├── update_adjustments.py
+    ├── update_symbols.py      ⭐
+    └── calculate_valuation.py
+
 
 
 Infrastructure
