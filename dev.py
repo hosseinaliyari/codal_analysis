@@ -1,2 +1,3 @@
-from processing.merge_data import MergeDataProcessor
-pr = MergeDataProcessor().merge_data()
+from infrastructure.repositories.RepositoriesMergeData import RepositoriesMergedData
+
+a =RepositoriesMergedData().update_MergedData()
