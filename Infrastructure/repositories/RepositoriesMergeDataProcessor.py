@@ -1,9 +1,8 @@
-from domain.entities.MergedData import MergedData
 from domain.repositories.IMergedData import IMergedData
 from infrastructure.connection.ConnectionText import get_connection
-from application.processing.MergeData import MergeDataProcessor
+from application.processing.MergeDataProcessor import MergeDataProcessor
 
-class RepositoriesMergedData(IMergedData):
+class RepositoriesMergeDataProcessor(IMergedData):
 
     def update_MergedData(self):
         query=("""

@@ -19,6 +19,12 @@ Data Processing: تمام عملیات روی DataFrame.
 | Service               | `ValuationService`             |
 | Processor             | `MergeDataProcessor`           |
 | Use Case              | `UpdateMarketUseCase`          |
+| لایه           | سوالی که جواب می‌دهد                      |
+| -------------- | ----------------------------------------- |
+| Presentation   | کاربر چه چیزی می‌خواهد؟                   |
+| Application    | چه مراحلی برای انجام درخواست باید طی شود؟ |
+| Domain         | قوانین و محاسبات اصلی چیست؟               |
+| Infrastructure | اطلاعات را چگونه ذخیره یا دریافت کنیم؟    |
 
 
 

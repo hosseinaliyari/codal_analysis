@@ -1,4 +1,4 @@
-from infrastructure.tsetmc.MarketCap import Market_Cap
+from infrastructure.tsetmc.DownloadMarketCap import DownloadMarketCap
 from infrastructure.connection.ConnectionText import get_connection
 import pandas as pd
 
@@ -23,7 +23,7 @@ class RepositoriesTsetmc:
                     MarketValue = excluded.MarketValue,
                     UpdateDate = excluded.UpdateDate;
                 """)
-        market = Market_Cap()
+        market = DownloadMarketCap.download_market_cap()
         rows = list(market.itertuples(index=False, name=None))
         conn = get_connection()
         conn.executemany(query, rows)

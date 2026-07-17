@@ -1,3 +1,7 @@
-from application.use_cases.Update_market import Update_market
+from application.use_cases.UseCaseUpdateMarket import UpdateMarketUseCase
 
-Update_market().execute()
+print("0 -- Download MarketCap & Save")
+print("1 -- Download MarketCap & Save")
+x = int(input("Enter Number : "))
+if x == 0 :
+    UpdateMarketUseCase.execute()

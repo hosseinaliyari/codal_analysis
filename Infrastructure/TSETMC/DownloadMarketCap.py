@@ -1,9 +1,9 @@
 import finpy_tse as tse
-from infrastructure.common.DatetimeHelper import now_jalali_str
+from infrastructure.common.DatetimeHelper import DatetimeHelper
 
-class MarketCap:
+class DownloadMarketCap:
     
-    def Market_Cap():
+    def download_market_cap():
         data= tse.Get_MarketWatch(save_excel=False)
         df=data[0]
         df['bt']=10000000000
@@ -12,6 +12,6 @@ class MarketCap:
         df['Market Cap']=round(df['Market Cap'])
         df=df[['Final','Final(%)','Market Cap']]
         df=df.filter(items=["Ticker","Final","Final(%)","Market Cap"])
-        df["UpdateDate"]=now_jalali_str()
+        df["UpdateDate"]=DatetimeHelper.now_jalali_str()
         df=df.reset_index()
         return df
